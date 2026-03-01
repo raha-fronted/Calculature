@@ -1,0 +1,123 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.calculator {
+  width: 380px;
+  padding: 30px;
+  border-radius: 28px;
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.calculator:hover {
+  transform: translateY(-6px);
+}
+
+#display {
+  width: 100%;
+  height: 90px;
+  border: none;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  background: rgba(0,0,0,0.6);
+  color: #00ffd5;
+  font-size: 38px;
+  text-align: right;
+  padding: 20px;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 5px 15px rgba(0,0,0,0.6),
+    inset 0 -2px 5px rgba(255,255,255,0.05);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.btn {
+  height: 75px;
+  border: none;
+  border-radius: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  background: rgba(255,255,255,0.08);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.operator {
+  background: linear-gradient(135deg, #ff8a00, #ff0058);
+}
+
+.equal {
+  background: linear-gradient(135deg, #00ffae, #00c3ff);
+  grid-row: span 2;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+.clear {
+  background: linear-gradient(135deg, #ff4e50, #f00000);
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    width: 95%;
+    padding: 20px;
+  }
+
+  #display {
+    font-size: 30px;
+    height: 75px;
+  }
+
+  .btn {
+    height: 60px;
+    font-size: 18px;
+  }
+}
